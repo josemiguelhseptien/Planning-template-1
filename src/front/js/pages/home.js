@@ -1,26 +1,84 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-			<div className="alert alert-info">
-				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
+		<div className="container-fluid">
+			Home
+			<div className="homeDisplay">
+				<div className="d-flex justify-content-center">
+
+
+					{/*Planning card*/}
+					<div className="homeCard card homeCardHover">
+						<Link className="home-card-body" to="/planning">
+							<div className="card-body">
+								<div className="d-flex justify-content-center"><h1><i className="fas fa-pen-square"></i></h1></div>
+								<div className="d-flex justify-content-center"><h5 className="card-title">Planning</h5></div>
+							</div>
+						</Link>
+					</div>
+
+
+					{/*Production card*/}
+					<div className="homeCard card homeCardHover">
+						<Link className="home-card-body" to="/production">
+							<div className="card-body">
+								<div className="d-flex justify-content-center"><h1><i className="fas fa-cogs"></i></h1></div>
+								<div className="d-flex justify-content-center"><h5 className="card-title">Production</h5></div>
+							</div>
+						</Link>
+					</div>
+
+
+					{/*Master data card*/}
+					<div className="homeCard card homeCardHover">
+						<Link className="home-card-body" to="/masterdata">
+							<div className="card-body">
+								<div className="d-flex justify-content-center"><h1><i className="fas fa-database"></i></h1></div>
+								<div className="d-flex justify-content-center"><h5 className="card-title">Master Data</h5></div>
+							</div>
+						</Link>
+					</div>
+				</div>
+				<div className="d-flex justify-content-center">
+					{/*KPIs card*/}
+					<div className="homeCard card homeCardHover">
+						<Link className="home-card-body" to="/kpis">
+							<div className="card-body">
+								<div className="d-flex justify-content-center"><h1><i className="fas fa-chart-pie"></i></h1></div>
+								<div className="d-flex justify-content-center"><h5 className="card-title">KPIs</h5></div>
+							</div>
+						</Link>
+					</div>
+					{/*Sales orders card*/}
+					<div className="homeCard card homeCardHover">
+						<Link className="home-card-body" to="/sales">
+							<div className="card-body">
+								<div className="d-flex justify-content-center"><h1><i className="fas fa-shopping-cart"></i></h1></div>
+								<div className="d-flex justify-content-center"><h5 className="card-title">Sales orders</h5></div>
+							</div>
+						</Link>
+					</div>
+
+				</div>
+
+
+
+
 			</div>
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://github.com/4GeeksAcademy/react-flask-hello/tree/95e0540bd1422249c3004f149825285118594325/docs">
-					Read documentation
-				</a>
-			</p>
+
+
+
 		</div>
 	);
+};
+
+Home.propTypes = {
+	match: PropTypes.object
 };

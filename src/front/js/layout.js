@@ -3,12 +3,18 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
+import { Signup } from "./pages/signup";
+import { Login } from "./pages/login";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { LandingPage } from "./pages/landingPage";
+import { Planning } from "./pages/planning";
+import { Production } from "./pages/production";
+import { MasterData } from "./pages/masterdata";
+import { KPIs } from "./pages/kpis";
+import { Sales } from "./pages/sales";
 
 //create your first component
 const Layout = () => {
@@ -22,12 +28,22 @@ const Layout = () => {
                 <ScrollToTop>
                     <Navbar />
                     <Routes>
-                        <Route element={<Home />} path="/" />
-                        <Route element={<Demo />} path="/demo" />
-                        <Route element={<Single />} path="/single/:theid" />
+                        <Route element={<LandingPage />} path="/" />
+                        <Route element={<Home />} path="/home" />
+                        <Route element={<LandingPage />} path="/landingpage" />
+                        <Route element={<Login />} path="/login" />
+                        <Route element={<Signup />} path="/signup" />
+                        <Route element={<Planning />} path="/planning" />
+                        <Route element={<Production />} path="/production" />
+                        <Route element={<MasterData />} path="/masterdata" />
+                        <Route element={<Sales />} path="/sales" />
+                        <Route element={<KPIs />} path="/kpis" />
+
+
+
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
-                    <Footer />
+
                 </ScrollToTop>
             </BrowserRouter>
         </div>

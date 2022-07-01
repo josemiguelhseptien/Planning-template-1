@@ -5,12 +5,18 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-light bg-light">
 			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+				<Link to="/home">
+					<h1 className="navbar-brand mb-0 span"><i className="fab fa-xing-square"></i></h1>
+				</Link>
+				<Link to="/landingpage">
+					<h1 className="navbar-brand mb-0 span">Landing Page</h1>
 				</Link>
 				<div className="ml-auto">
-					<Link to="/demo">
-						<button className="btn btn-primary">Check the Context in action</button>
+					<Link to="/login">
+						<button className="btn btn-primary">Login</button>
+					</Link>
+					<Link to="/signup">
+						<button className="btn btn-primary">Sign up</button>
 					</Link>
 				</div>
 			</div>

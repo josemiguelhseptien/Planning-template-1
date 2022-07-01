@@ -1,7 +1,82 @@
-/*
-    home.css: This website contains selectors only used in home.css
+.homeDisplay {}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+.homeCard {
+    width: 18rem;
+    margin: 30px;
+}
+
+.home-card-body {
+    text-decoration: none;
+    color: rgb(59, 59, 59);
+}
+
+.homeCardHover :hover {
+    background-color: rgb(223, 223, 223);
+    text-decoration: none;
+    color: rgb(32, 32, 32);
+}
+
+/* Planning styles*/
+.planningContainer {
+    width: 100%;
+    padding: 0%;
+    margin: 0%
+}
+
+.planningDisplay {
+    margin: 0;
+    padding: 0;
+}
+
+.sideBar {
+    margin: 0;
+    width: 11rem;
+    height: 80vh;
+    background-color: rgb(211, 211, 211);
+    overflow-y: auto;
+}
+
+.WO-card-body {
+    text-decoration: none;
+    color: rgb(59, 59, 59);
+}
+
+.WOCardHover :hover {
+    background-color: rgb(223, 223, 223);
+    text-decoration: none;
+    color: rgb(32, 32, 32);
+}
+
+.plan-menu-icon {
+    width: 40px !important;
+    text-align: center;
+    color: rgb(32, 32, 32);
+}
+
+.plan-vertical-center {
+    align-items: center;
+    padding-top: 10px;
+}
+
+.div-plan-menu-icon {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(211, 211, 211);
+    color: rgb(32, 32, 32);
+}
+
+.div-plan-menu-icon :hover {
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(223, 223, 223);
+    color: rgb(32, 32, 32);
+    cursor: pointer;
+}
+
+.drawingboard {
+    padding: 10px;
+    width: 100%;
+    background-color: lightblue;
+}
