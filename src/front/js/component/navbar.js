@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../../styles/home.css";
+
 
 export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-light bg-light">
 			<div className="container">
 				<Link to="/home">
-					<h1 className="navbar-brand mb-0 span"><i className="fab fa-xing-square"></i></h1>
+					<h1 className="navbar-brand mb-0 span"><i className="navbar fab fa-xing-square"></i></h1>
 				</Link>
 				<Link to="/landingpage">
-					<h1 className="navbar-brand mb-0 span">Landing Page</h1>
+					<h1 className="navbar navbar-brand mb-0 span">Landing Page</h1>
 				</Link>
 				<div className="ml-auto">
 					<Link to="/login">

@@ -1,4 +1,16 @@
-.homeDisplay {}
+.navbar {
+    background-color: rgb(51, 51, 51) !important;
+    color: white !important;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    background-color: rgb(51, 51, 51) !important;
+    color: white !important;
+}
 
 .homeCard {
     width: 18rem;
@@ -29,11 +41,30 @@
 }
 
 .sideBar {
+
     margin: 0;
-    width: 14rem;
-    height: 80vh;
+    width: 4rem;
+    height: 100vh;
     background-color: rgb(51, 51, 51);
     overflow-y: auto;
+}
+
+.orderMenu {
+
+    margin: 0;
+    width: 11rem;
+
+    height: 100vh;
+    background-color: rgb(92, 99, 106);
+    overflow-y: auto;
+}
+
+.order-menu-title {
+    padding-top: 10px;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    color: white !important;
 }
 
 .plan-menu-icon {
@@ -70,25 +101,12 @@
     color: rgb(92, 99, 106) !important;
 }
 
+.plan_btn2 :hover {
+    color: rgb(92, 99, 106) !important;
+}
+
 .drawingboard {
     padding: 10px;
     width: 100%;
-    background-color: lightblue;
-}
-
-.orderMenu {
-    margin: 0;
-    width: 14rem;
-    height: 80vh;
-    background-color: rgb(92, 99, 106);
-    overflow-y: auto;
-}
-
-.order-menu-title {
-    padding-top: 10px;
-    text-align: center;
-    width: 100%;
-    height: 40px;
-    color: white !important;
-
+    overflow: scroll;
 }

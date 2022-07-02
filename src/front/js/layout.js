@@ -15,6 +15,7 @@ import { Production } from "./pages/production";
 import { MasterData } from "./pages/masterdata";
 import { KPIs } from "./pages/kpis";
 import { Sales } from "./pages/sales";
+import { Projections } from "./pages/projections";
 
 //create your first component
 const Layout = () => {
@@ -38,12 +39,14 @@ const Layout = () => {
                         <Route element={<MasterData />} path="/masterdata" />
                         <Route element={<Sales />} path="/sales" />
                         <Route element={<KPIs />} path="/kpis" />
+                        <Route element={<Projections />} path="/projections" />
+
 
 
 
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
-
+                    <Footer />
                 </ScrollToTop>
             </BrowserRouter>
         </div>

@@ -12,7 +12,6 @@ export const Home = () => {
 
 	return (
 		<div className="container-fluid">
-			Home
 			<div className="homeDisplay">
 				<div className="d-flex justify-content-center">
 
@@ -65,6 +64,15 @@ export const Home = () => {
 							<div className="card-body">
 								<div className="d-flex justify-content-center"><h1><i className="fas fa-shopping-cart"></i></h1></div>
 								<div className="d-flex justify-content-center"><h5 className="card-title">Sales orders</h5></div>
+							</div>
+						</Link>
+					</div>
+					{/*projections card*/}
+					<div className="homeCard card homeCardHover">
+						<Link className="home-card-body" to="/projections">
+							<div className="card-body">
+								<div className="d-flex justify-content-center"><h1><i className="fas fa-chart-line"></i></h1></div>
+								<div className="d-flex justify-content-center"><h5 className="card-title">Projections</h5></div>
 							</div>
 						</Link>
 					</div>
