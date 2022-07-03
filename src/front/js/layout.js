@@ -16,6 +16,7 @@ import { MasterData } from "./pages/masterdata";
 import { KPIs } from "./pages/kpis";
 import { Sales } from "./pages/sales";
 import { Projections } from "./pages/projections";
+import { SOpage } from "./pages/SOpage";
 
 //create your first component
 const Layout = () => {
@@ -40,6 +41,7 @@ const Layout = () => {
                         <Route element={<Sales />} path="/sales" />
                         <Route element={<KPIs />} path="/kpis" />
                         <Route element={<Projections />} path="/projections" />
+                        <Route element={<SOpage />} path="/salesOrder/:id" />
 
 
 

@@ -2,17 +2,81 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
-			demo: [
+			salesOrders: [
 				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
+					id: 1,
+					client: "FIRST",
+					sales_order_number: "SO number",
+					WO: "WO number",
+					product_code: 2022,
+					product_description: "my product 1 60ct",
+					order_quantity: 20000,
+					order_placement_date: "05 / 05 / 2022",
+					order_acceptance_date: "05 / 07 / 2022",
+					order_request_date: "07 / 07 / 2022",
+					order_ETA: "08 / 07 / 2022",
+					order_completion_date: "08 / 07 / 2022",
+					order_process_code: 5,
+					order_status: "in process",
+					comments: "materials were pending to begin the order",
+					blending: "completed",
+					compression: "in progress",
+					encapsulation: "",
+					blistering: "",
+					bottling: "",
+					packaging: "",
+					powder: "",
 				},
 				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
+					id: 2,
+					client: "FIRST",
+					sales_order_number: "SO number",
+					WO: "WO number",
+					product_code: 2022,
+					product_description: "my product 1 60ct",
+					order_quantity: 20000,
+					order_placement_date: "05 / 05 / 2022",
+					order_acceptance_date: "05 / 07 / 2022",
+					order_request_date: "07 / 07 / 2022",
+					order_ETA: "08 / 07 / 2022",
+					order_completion_date: "08 / 07 / 2022",
+					order_process_code: 5,
+					order_status: "in process",
+					comments: "materials were pending to begin the order",
+					blending: "completed",
+					compression: "in progress",
+					encapsulation: "",
+					blistering: "",
+					bottling: "",
+					packaging: "",
+					powder: "",
+				},
+				{
+					id: 3,
+					client: "FIRST",
+					sales_order_number: "SO number",
+					WO: "WO number",
+					product_code: 2022,
+					product_description: "my product 1 60ct",
+					order_quantity: 20000,
+					order_placement_date: "05 / 05 / 2022",
+					order_acceptance_date: "05 / 07 / 2022",
+					order_request_date: "07 / 07 / 2022",
+					order_ETA: "08 / 07 / 2022",
+					order_completion_date: "08 / 07 / 2022",
+					order_process_code: 5,
+					order_status: "in process",
+					comments: "materials were pending to begin the order",
+					blending: "completed",
+					compression: "in progress",
+					encapsulation: "",
+					blistering: "",
+					bottling: "",
+					packaging: "",
+					powder: "",
+				},
+
+
 			]
 		},
 		actions: {
@@ -22,14 +86,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getMessage: async () => {
-				try{
+				try {
 					// fetching data from the backend
 					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
 					const data = await resp.json()
 					setStore({ message: data.message })
 					// don't forget to return something, that is how the async resolves
 					return data;
-				}catch(error){
+				} catch (error) {
 					console.log("Error loading message from backend", error)
 				}
 			},

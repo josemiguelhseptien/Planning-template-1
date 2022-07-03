@@ -5,13 +5,13 @@ import "../../styles/home.css";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light">
-			<div className="container">
+		<nav className="navbar navbar-light bg-light d-flex justify-content-between">
+			<div className="container-fluid nav-container">
 				<Link to="/home">
-					<h1 className="navbar-brand mb-0 span"><i className="navbar fab fa-xing-square"></i></h1>
+					<h1 className="navbar-brand mb-0 span"><i className="nav-item fab fa-xing-square"></i></h1>
 				</Link>
 				<Link to="/landingpage">
-					<h1 className="navbar navbar-brand mb-0 span">Landing Page</h1>
+					<h1 className="nav-item navbar-brand mb-0 span">Landing Page</h1>
 				</Link>
 				<div className="ml-auto">
 					<Link to="/login">
