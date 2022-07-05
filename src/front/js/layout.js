@@ -17,6 +17,7 @@ import { KPIs } from "./pages/kpis";
 import { Sales } from "./pages/sales";
 import { Projections } from "./pages/projections";
 import { SOpage } from "./pages/SOpage";
+import { CreateSalesOrder } from "./pages/createSalesOrder";
 
 //create your first component
 const Layout = () => {
@@ -42,6 +43,7 @@ const Layout = () => {
                         <Route element={<KPIs />} path="/kpis" />
                         <Route element={<Projections />} path="/projections" />
                         <Route element={<SOpage />} path="/salesOrder/:id" />
+                        <Route element={<CreateSalesOrder />} path="/create_sales_order" />
 
 
 

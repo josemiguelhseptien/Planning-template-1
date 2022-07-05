@@ -104,3 +104,7 @@ table {
 .salesTd {
     width: 120vw;
 }
+
+.btn-light {
+    background-color: rgba(0, 0, 0, 0) !important;
+}

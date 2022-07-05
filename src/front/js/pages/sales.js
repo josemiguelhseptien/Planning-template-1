@@ -10,7 +10,8 @@ export const Sales = () => {
     const [operationType, setoperationType] = useState("open")
     const [displayType, setDisplayType] = useState(true)
     const [viewType, setViewType] = useState("month")
-    const [results, setResults] = useState(store.salesOrders);
+    const [allSalesOrders, setAllSalesOrders] = useState(store.salesOrders);
+    const [allWO, setAllWO] = useState(store.SO_WO_Orders);
 
 
     let placeholderArr = ["40000", "40000", "40000"]
@@ -40,15 +41,38 @@ export const Sales = () => {
     const customDay = today.getDay()
     const customDate = today.getDate()
 
+    function mapWO() {
+        let auxArr = []
+        let mappedArr = allWO.map((element, index) => {
+            let MappedWO = element.WO.map((subElement, i) => {
+                auxArr.push(subElement)
+                return subElement
+            })
+            return MappedWO
+        })
+
+        return console.log(auxArr)
+    }
 
     function mapSalesOrders() {
-        let mappedArr = results.map((salesOrders, index) => {
+        let mappedArr = allSalesOrders.map((salesOrders, index) => {
             let componentCard = (<SalesOrderCard key={index} SO={salesOrders} />)
             return componentCard
         })
         return mappedArr
     }
+    function filterOrders(string) {
 
+        let filterArr = allSalesOrders.filter((salesOrders) => {
+            return salesOrders.order_status == string
+        })
+        let mapFilteredArr = filterArr.map((salesOrders, index) => {
+            let componentCard = (<SalesOrderCard key={index} SO={salesOrders} />)
+            return componentCard
+        })
+        console.log(mapFilteredArr)
+        return mapFilteredArr
+    }
 
 
 
@@ -61,6 +85,7 @@ export const Sales = () => {
                     <button className="side_btn btn btn-secondary" onClick={(e) => { setoperationType("open") }} title="open"><h6><i className="fas fa-clipboard"></i></h6></button>
                     <button className="side_btn btn btn-secondary" onClick={(e) => { setoperationType("completed") }} title="completed"><h6><i className="fas fa-check-square"></i></h6></button>
                     <button className="side_btn btn btn-secondary" onClick={(e) => { setoperationType("history") }} title="history"><h6><i className="fas fa-book"></i></h6></button>
+                    <button className="side_btn btn btn-secondary" onClick={(e) => { setoperationType("historyWO") }} title="history"><h6><i className="fas fa-book"></i></h6></button>
 
 
                 </div>
@@ -75,7 +100,7 @@ export const Sales = () => {
                         </div>
 
                         <div className="d-flex">
-                            <button className="btn btn-light" title="new entry"><i className="fas fa-plus-square"></i></button>
+                            <Link className="removeLink" to={{ pathname: `/create_sales_order` }}><button className="btn btn-light" title="new entry"><i className="fas fa-plus-square"></i></button> </Link>
                             <button className="btn btn-light" title="upload file"> <i className="fas fa-upload"></i></button>
                             <button className="btn btn-light" title="download file"> <i className="fas fa-download"></i></button>
                         </div>
@@ -94,19 +119,22 @@ export const Sales = () => {
                             <table className="table table-hover">
                                 <tbody className="salesTd">
                                     <tr>
-                                        <td classname="salesTd">Link</td>
-                                        <td classname="salesTd">Client</td>
-                                        <td classname="salesTd">SO Number</td>
-                                        <td classname="salesTd">WO</td>
-                                        <td classname="salesTd">Code</td>
-                                        <td classname="salesTd">Description</td>
-                                        <td classname="salesTd">Quantity</td>
-                                        <td classname="salesTd">Placed</td>
-                                        <td classname="salesTd">Accepted</td>
-                                        <td classname="salesTd">Requested</td>
-                                        <td classname="salesTd">Comment</td>
+                                        <td className="salesTd">Link</td>
+                                        <td className="salesTd">Client</td>
+                                        <td className="salesTd">SO Number</td>
+                                        <td className="salesTd">WO</td>
+                                        <td className="salesTd">Code</td>
+                                        <td className="salesTd">Description</td>
+                                        <td className="salesTd">Quantity</td>
+                                        <td className="salesTd">Placed</td>
+                                        <td className="salesTd">Accepted</td>
+                                        <td className="salesTd">Requested</td>
+                                        <td className="salesTd">Comment</td>
                                     </tr>
-                                    {mapSalesOrders()}
+                                    {operationType == "open" ? (filterOrders("open")) : (null)}
+                                    {operationType == "completed" ? (filterOrders("completed")) : (null)}
+                                    {operationType == "history" ? (mapSalesOrders()) : (null)}
+                                    {operationType == "historyWO" ? (mapWO()) : (null)}
                                 </tbody>
                             </table>
                         </div>
