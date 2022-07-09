@@ -7,21 +7,22 @@ import "../../styles/index.css";
 
 
 
-export const SalesOrderCard = (props) => {
+export const WorkOrderCard = (props) => {
     const { store, actions } = useContext(Context);
 
     return (
         <div className="container-fluid ">
-            <Link onClick={() => { actions.setSalesId(props.salesOrder.id), console.log(store.salesId) }} className="list-group-item  list-group-item-action" to={{
-                pathname: `/salesorder/${props.salesOrder.id}`,
-                state: props.salesOrder,
-            }}>some link<button>{props.salesOrder.id}</button></Link>
+            <Link onClick={() => { actions.setSalesId(props.workOrder.id), console.log(store.salesId) }} className="list-group-item  list-group-item-action" to={{
+                pathname: `/salesorder/${props.workOrder.id}`,
+                state: props.workOrder,
+            }}>some WO <button>{props.workOrder.id}</button></Link>
+
         </div>
 
     );
 };
 
-SalesOrderCard.propTypes = {
+WorkOrderCard.propTypes = {
     match: PropTypes.object,
 };
 

@@ -3,12 +3,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			message: null,
 			salesId: 1,
+			salesOrder: {},
 			sales_orders: [
 				{
 					id: 1,
 					client: "FIRST",
-					sales_order_number: "SO number 2",
-
+					sales_order_number: "SO number",
 
 					WO: [
 						{
@@ -18,14 +18,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 							order_quantity: 23000,
 							WO_status: "not started",
 							comments: "materials were pending to begin the order",
-							order_process_code: 5,
-							blending: "completed",
-							compression: "in progress",
-							encapsulation: "",
-							blistering: "",
-							bottling: "",
-							packaging: "",
-							powder: "",
+							product_process_code: 5,
+							productPrice: 6.22,
+							productCurrency: "USD"
 						},
 						{
 							WO_number: 50552,
@@ -34,14 +29,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 							order_quantity: 10000,
 							WO_status: "not started",
 							comments: "materials were pending to begin the order",
-							order_process_code: 5,
-							blending: "completed",
-							compression: "in progress",
-							encapsulation: "",
-							blistering: "",
-							bottling: "",
-							packaging: "",
-							powder: "",
+							product_process_code: 5,
+
+							productPrice: 6.22,
+							productCurrency: "USD"
 						},
 
 					],
@@ -62,36 +53,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					WO: [
 						{
-							WO_number: 50553,
+							WO_number: 50556,
 							product_code: 2023,
 							product_description: "my product 1 60ct",
 							order_quantity: 23000,
 							WO_status: "not started",
 							comments: "materials were pending to begin the order",
-							order_process_code: 5,
-							blending: "completed",
-							compression: "in progress",
-							encapsulation: "",
-							blistering: "",
-							bottling: "",
-							packaging: "",
-							powder: "",
+							product_process_code: 5,
+							productPrice: 6.22,
+							productCurrency: "USD"
 						},
 						{
-							WO_number: 50552,
+							WO_number: 50557,
 							product_code: 2024,
 							product_description: "my product 1 60ct",
 							order_quantity: 10000,
 							WO_status: "not started",
 							comments: "materials were pending to begin the order",
-							order_process_code: 5,
-							blending: "completed",
-							compression: "in progress",
-							encapsulation: "",
-							blistering: "",
-							bottling: "",
-							packaging: "",
-							powder: "",
+							product_process_code: 5,
+							productPrice: 6.22,
+							productCurrency: "USD"
 						},
 
 					],
@@ -108,20 +89,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			Products: [
 				{
-					code: 20252,
+					product_code: 20252,
 					process_code: 5,
 					unitType: "tablet",
 					unitDescription: "3/8",
 					unitAveWeight: 255,
 					UoM: "mg",
-					finishedPackCount: 60,
+					FP_PackCount: 60,
 					FP_UoM: "bottle",
 					intermediatePackCount: 0,
 					intermediate_UoM: "",
 					CaseCount: 111,
 					PalletCount: 40,
-					productPrice: 6.22,
-					productCurrency: "USD"
 				}
 			]
 
@@ -131,7 +110,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				setStore({ salesId: number });
 			},
-
 
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {

@@ -110,8 +110,7 @@ table {
 }
 
 .drawingboard {
-    width: 95%;
-    margin-right: 1%;
-    max-height: 83vh;
+    width: 100%;
+    max-height: 82vh;
     overflow: auto;
 }

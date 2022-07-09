@@ -16,6 +16,7 @@ import { KPIs } from "./pages/kpis";
 import { Sales } from "./pages/sales";
 import { Projections } from "./pages/projections";
 import { SalesOrder } from "./pages/salesOrder";
+import { CreateSalesOrder } from "./pages/createSalesOrder"
 
 
 //create your first component
@@ -42,9 +43,10 @@ const Layout = () => {
                         <Route element={<KPIs />} path="/kpis" />
                         <Route element={<Projections />} path="/projections" />
                         <Route element={<SalesOrder />} path="/salesorder/:id" component={SalesOrder} />
+                        <Route element={<CreateSalesOrder />} path="/create_sales_order" />
 
 
-
+                        create_sales_order
 
 
                         <Route element={<h1>Not found!</h1>} />
