@@ -21,9 +21,9 @@ export const MasterData = () => {
                     <div className=" drawingboard  justify-content-center">
                         <div className="card">
                             <div className="card-header">button</div>
-                            <div className="card-body"> Master Data</div>
-                            <div className="card-body"> product process code</div>
-                            <div className="card-body"> product master</div>
+                            <div className="card-body">Master Data</div>
+                            <div className="card-body">product process code</div>
+                            <div className="card-body">customer master</div>
                         </div>
                     </div>
                 </div>

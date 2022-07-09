@@ -9,7 +9,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					id: 1,
 					client: "FIRST",
 					sales_order_number: "SO number",
-
 					WO: [
 						{
 							WO_number: 50553,
