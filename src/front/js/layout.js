@@ -6,7 +6,6 @@ import { Home } from "./pages/home";
 import { Signup } from "./pages/signup";
 import { Login } from "./pages/login";
 import injectContext from "./store/appContext";
-
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { LandingPage } from "./pages/landingPage";
@@ -16,8 +15,8 @@ import { MasterData } from "./pages/masterdata";
 import { KPIs } from "./pages/kpis";
 import { Sales } from "./pages/sales";
 import { Projections } from "./pages/projections";
-import { SOpage } from "./pages/SOpage";
-import { CreateSalesOrder } from "./pages/createSalesOrder";
+import { SalesOrder } from "./pages/salesOrder";
+
 
 //create your first component
 const Layout = () => {
@@ -32,8 +31,8 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route element={<LandingPage />} path="/" />
-                        <Route element={<Home />} path="/home" />
                         <Route element={<LandingPage />} path="/landingpage" />
+                        <Route element={<Home />} path="/home" />
                         <Route element={<Login />} path="/login" />
                         <Route element={<Signup />} path="/signup" />
                         <Route element={<Planning />} path="/planning" />
@@ -42,8 +41,8 @@ const Layout = () => {
                         <Route element={<Sales />} path="/sales" />
                         <Route element={<KPIs />} path="/kpis" />
                         <Route element={<Projections />} path="/projections" />
-                        <Route element={<SOpage />} path="/salesOrder/:id" />
-                        <Route element={<CreateSalesOrder />} path="/create_sales_order" />
+                        <Route element={<SalesOrder />} path="/salesorder/:id" component={SalesOrder} />
+
 
 
 

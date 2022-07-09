@@ -2,12 +2,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
-
-			SO_Orders: [
+			salesId: 1,
+			sales_orders: [
 				{
 					id: 1,
 					client: "FIRST",
-					sales_order_number: "SO number",
+					sales_order_number: "SO number 2",
+
+
 					WO: [
 						{
 							WO_number: 50553,
@@ -49,19 +51,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					order_ETA: "08 / 07 / 2022",
 					order_completion_date: "08 / 07 / 2022",
 					order_status: "completed",
+					payment_method: "TBD",
+					payment_status: "TBD2",
 				},
 				{
 					id: 2,
 					client: "Second",
-					sales_order_number: "SO number",
+					sales_order_number: "SO number 2",
+
+
 					WO: [
 						{
-							WO_number: 5056,
-							product_code: 2022,
+							WO_number: 50553,
+							product_code: 2023,
 							product_description: "my product 1 60ct",
-							order_quantity: 20000,
+							order_quantity: 23000,
 							WO_status: "not started",
 							comments: "materials were pending to begin the order",
+							order_process_code: 5,
 							blending: "completed",
 							compression: "in progress",
 							encapsulation: "",
@@ -70,46 +77,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 							packaging: "",
 							powder: "",
 						},
+						{
+							WO_number: 50552,
+							product_code: 2024,
+							product_description: "my product 1 60ct",
+							order_quantity: 10000,
+							WO_status: "not started",
+							comments: "materials were pending to begin the order",
+							order_process_code: 5,
+							blending: "completed",
+							compression: "in progress",
+							encapsulation: "",
+							blistering: "",
+							bottling: "",
+							packaging: "",
+							powder: "",
+						},
+
 					],
 					order_placement_date: "05 / 05 / 2022",
 					order_acceptance_date: "05 / 07 / 2022",
 					order_request_date: "07 / 07 / 2022",
 					order_ETA: "08 / 07 / 2022",
 					order_completion_date: "08 / 07 / 2022",
-					order_process_code: 5,
 					order_status: "completed",
+					payment_method: "TBD",
+					payment_status: "TBD2",
 				},
-				{
-					id: 3,
-					client: "Third",
-					sales_order_number: "SO number",
-					WO: [
-						{
-							WO_number: 5059,
-							product_code: 3022,
-							product_description: "my product 1 60ct",
-							order_quantity: 40000,
-							WO_status: "not started",
-							comments: "materials were pending to begin the order",
-							blending: "completed",
-							compression: "in progress",
-							encapsulation: "",
-							blistering: "",
-							bottling: "",
-							packaging: "",
-							powder: "",
-						},
-					],
-					order_placement_date: "05 / 05 / 2022",
-					order_acceptance_date: "05 / 07 / 2022",
-					order_request_date: "07 / 07 / 2022",
-					order_ETA: "08 / 07 / 2022",
-					order_completion_date: "08 / 07 / 2022",
-					order_process_code: 5,
-					order_status: "open",
-				},
+
 			],
-			Product: [
+			Products: [
 				{
 					code: 20252,
 					process_code: 5,
@@ -130,6 +127,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 		},
 		actions: {
+			setSalesId: (number) => {
+				const store = getStore();
+				setStore({ salesId: number });
+			},
+
+
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
