@@ -21,21 +21,19 @@ export const CreateSalesOrder = props => {
             order_status: "",
             payment_method: "",
             payment_status: "",
-
         }
     )
     const [newWorkOrder, setNewWorkOrder] = useState([])
 
-
-    let auxObj = {
-        WO_number: 50553,
-        product_code: 2023,
-        product_description: "my product 1 60ct",
-        order_quantity: 23000,
-        WO_status: "not started",
-        comments: "materials were pending to begin the order",
-        product_process_code: 5,
-        productPrice: 6.22,
+    var auxObj = {
+        WO_number: 0,
+        product_code: 0,
+        product_description: "",
+        order_quantity: 0,
+        WO_status: "",
+        comments: "",
+        product_process_code: 0,
+        productPrice: 0,
         productCurrency: "USD"
     }
 
@@ -47,23 +45,51 @@ export const CreateSalesOrder = props => {
         auxArr.splice(index, 1)
         newWorkOrder.length == 0 ? (null) : setNewWorkOrder(auxArr);
     }
-    function mapNewWorkOrder() {
+    function mapNewWorkOrder(input, index) {
         let mappednewWorkOrder = newWorkOrder.map((element, index) => {
             return (
-                <div className='d-flex' key={index}>
-                    <button onClick={() => { subtractWO(index) }}>X</button>
-                    <h3 >{element.WO_number}</h3>
+                <div className='d-flex form_width' key={index}>
+                    <button className="btn btn-light" onClick={() => { subtractWO(index) }}><i className="fas fa-times"></i></button>
+                    <input className="form-control " name="WO_number" onChange={(event) => { handleChange(event.target.value, index, event.target.name) }}></input>
+                    <input className="form-control" name="product_code" onChange={(event) => { handleChange(event.target.value, index, event.target.name) }}></input>
+                    <input className="form-control" name="product_description" onChange={(event) => { handleChange(event.target.value, index, event.target.name) }}></input>
+                    <input className="form-control" name="order_quantity" onChange={(event) => { handleChange(event.target.value, index, event.target.name) }}></input>
+                    <input className="form-control" name="WO_status" onChange={(event) => { handleChange(event.target.value, index, event.target.name) }}></input>
+                    <input className="form-control" name="comments" onChange={(event) => { handleChange(event.target.value, index, event.target.name) }}></input>
+                    <input className="form-control" name="product_process_code" onChange={(event) => { handleChange(event.target.value, index, event.target.name) }}></input>
+                    <input className="form-control" name="productPrice" onChange={(event) => { handleChange(event.target.value, index, event.target.name) }}></input>
+                    <input className="form-control" name="productCurrency" onChange={(event) => { handleChange(event.target.value, index, event.target.name) }}></input>
                 </div>)
         })
+
         return mappednewWorkOrder
     }
 
 
+
+    function handleChange(input, index, name) {
+        auxObj = [...newWorkOrder]
+        auxObj[index][name] = input
+        console.log(newWorkOrder)
+        setNewWorkOrder(auxObj)
+    }
+
+
+
+
+
+    function handleSave() {
+
+        newSalesOrder['WO'] = newWorkOrder
+        actions.createSalesOrder(newSalesOrder)
+
+    }
+
     return (
         <div className="container-fluid planningContainer">
             <div className=" drawingboard">
-                <div className="card">
-                    <div className="card-header"><button className="btn btn-light" title="save" onClick={(e) => { console.log(newSalesOrder) }}><i className="fas fa-save"></i></button></div>
+                <div className="card overflow_auto">
+                    <div className="card-header"><button className="btn btn-light" title="save" onClick={() => { handleSave() }}><i className="fas fa-save"></i></button></div>
                     <div className="card-body">
                         <div className="d-flex">
                             <div>
@@ -102,15 +128,19 @@ export const CreateSalesOrder = props => {
                             </div>
                         </div>
                         <br></br>
-                        <div className="d-flex">
-                            <div><button onClick={() => { addWO(), console.log(newWorkOrder) }}>+</button></div>
-                        </div>
+
                         <div>
-                            <div className="d-flex">
-                                <div className="form-control">WO</div><div className="form-control">Product</div>
-                            </div>
-                            <div className="d-flex">
-                                <input className="form-control"></input><input className="form-control"></input>
+                            <div className="d-flex table_header">
+                                <div><button className="btn btn-light" onClick={() => { addWO(), console.log(newWorkOrder) }}><i className="fas fa-plus-square"></i></button></div>
+                                <div className="form_width">WO</div>
+                                <div className="form_width">Product code</div>
+                                <div className="form_width">Description</div>
+                                <div className="form_width">Quantity</div>
+                                <div className="form_width">Status</div>
+                                <div className="form_width">Comments</div>
+                                <div className="form_width">Process code</div>
+                                <div className="form_width">Unit price</div>
+                                <div className="form_width">Currency</div>
                             </div>
                             {mapNewWorkOrder()}
                         </div>

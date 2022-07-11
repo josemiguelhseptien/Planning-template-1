@@ -29,7 +29,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 							WO_status: "not started",
 							comments: "materials were pending to begin the order",
 							product_process_code: 5,
-
 							productPrice: 6.22,
 							productCurrency: "USD"
 						},
@@ -108,12 +107,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setSalesId: (number) => {
 				const store = getStore();
 				setStore({ salesId: number });
+
 			},
+
+			createSalesOrder: (obj) => {
+				const store = getStore();
+				let auxArr = [...store.sales_orders, obj]
+				setStore({ sales_orders: auxArr });
+				console.log(store.sales_orders)
+			},
+
+
+
 
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+
 
 			getMessage: async () => {
 				try {

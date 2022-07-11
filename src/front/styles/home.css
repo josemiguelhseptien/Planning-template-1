@@ -110,7 +110,26 @@ table {
 }
 
 .drawingboard {
-    width: 100%;
+    width: 100vw;
+    max-width: 500vh;
     max-height: 82vh;
     overflow: auto;
+}
+
+.overflow_auto {
+    overFlow: auto
+}
+
+.form_width {
+    width: 120vw !important
+}
+
+.table_header {
+    font-weight: bold;
+    align-items: baseline;
+    border-bottom: 1px solid #aaa;
+    text-align: center !important;
+    width: 120vw;
+    max-width: 500vh;
+    overFlow: auto
 }

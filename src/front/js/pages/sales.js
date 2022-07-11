@@ -57,7 +57,7 @@ export const Sales = (props) => {
                         <div className="card-header">
                             <Link to={{
                                 pathname: `/create_sales_order`,
-                            }}><button className="btn btn-light" title="save"><i className="fas fa-save"></i></button></Link>
+                            }}><button className="btn btn-light" title="save"><i className="fas fa-plus-square"></i></button></Link>
                         </div>
                         <div className="card-body"> {mapSalesOrders(allSO)}</div>
                         <div className="card-body"> {mapWorkOrders(allSO)}</div>
