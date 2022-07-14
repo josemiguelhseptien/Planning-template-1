@@ -41,12 +41,12 @@ export const Sales = (props) => {
                 auxArr.push(elm)
                 return <WorkOrderCard key={i} workOrder={elm} />
             })
-
             return mapWOs
         })
         return mappedAllSO
     }
 
+    const [filterValue, setFilterValue] = useState('Filter')
 
     return (
         <div className="container-fluid planningContainer">
@@ -54,16 +54,42 @@ export const Sales = (props) => {
                 <div className="sideBar">a</div>
                 <div className=" drawingboard">
                     <div className="card">
-                        <div className="card-header">
+                        <div className="card-header d-flex">
                             <Link to={{
                                 pathname: `/create_sales_order`,
                             }}><button className="btn btn-light" title="save"><i className="fas fa-plus-square"></i></button></Link>
+                            {/*Dropdown menu */}
+                            <div className="btn-group">
+                                <button type="button" className="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {filterValue}
+                                </button>
+                                <ul className="dropdown-menu">
+                                    <li className="dropdown-item" onClick={() => { setFilterValue('Action') }}>Action</li>
+                                    <li className="dropdown-item" onClick={() => { setFilterValue('Another') }}>Another action</li>
+                                    <li className="dropdown-item" onClick={() => { setFilterValue('Something') }}>Something else here</li>
+                                    <li className="dropdown-item" onClick={() => { setFilterValue('Separated') }}>Separated link</li>
+                                </ul>
+                            </div>
+
+                            <div><input className='form-control'></input></div>
+                            <button className="btn btn-light" title="clear search" onClick={() => { setFilterValue('Filter') }}><i className="fas fa-times"></i></button>
+
                         </div>
-                        <div className="card-body"> {mapSalesOrders(allSO)}</div>
-                        <div className="card-body"> {mapWorkOrders(allSO)}</div>
-                        <div className="card-body"> {mapWorkOrders(allSO)}</div>
-                        <div className="card-body"> {mapWorkOrders(allSO)}</div>
-                        <div className="card-body"> {mapWorkOrders(allSO)}</div>
+                        <div className="d-flex ">
+                            <div className="form_width bolded table_rows_small centerText">Link</div>
+                            <div className="form_width bolded s_table_head centerText">Client</div>
+                            <div className="form_width bolded s_table_head centerText">WO</div>
+                            <div className="form_width bolded s_table_head centerText">Product code</div>
+                            <div className="form_width bolded s_table_head centerText">Description</div>
+                            <div className="form_width bolded s_table_head centerText">Quantity</div>
+                            <div className="form_width bolded s_table_head centerText">Comments</div>
+                            <div className="form_width bolded s_table_head centerText">Process code</div>
+                            <div className="form_width bolded s_table_head centerText">Status</div>
+
+                        </div>
+                        <div > {mapSalesOrders(allSO)}</div>
+                        <div> {mapWorkOrders(allSO)}</div>
+
                     </div>
                 </div>
             </div>

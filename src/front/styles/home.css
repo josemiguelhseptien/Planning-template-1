@@ -133,3 +133,35 @@ table {
     max-width: 500vh;
     overFlow: auto
 }
+
+.s_table_head {
+    width: 15% !important;
+    height: 50px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(172, 171, 171, 0.521);
+    padding: 3px;
+    padding-top: 20px;
+
+}
+
+.table_rows {
+    width: 15% !important;
+    height: 70px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(172, 171, 171, 0.521);
+    padding: 3px;
+}
+
+.table_rows_small {
+    width: 5% !important;
+    border-bottom: 1px solid rgba(172, 171, 171, 0.521);
+
+}
+
+.table_hover :hover {
+    background-color: rgba(241, 240, 240, 0.747) !important;
+}
+
+.bolded {
+    font-weight: bold !important;
+}

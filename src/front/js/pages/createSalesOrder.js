@@ -40,11 +40,13 @@ export const CreateSalesOrder = props => {
     function addWO() {
         setNewWorkOrder([...newWorkOrder, auxObj]);
     }
+
     function subtractWO(index) {
         let auxArr = [...newWorkOrder]
         auxArr.splice(index, 1)
         newWorkOrder.length == 0 ? (null) : setNewWorkOrder(auxArr);
     }
+
     function mapNewWorkOrder(input, index) {
         let mappednewWorkOrder = newWorkOrder.map((element, index) => {
             return (
@@ -61,11 +63,8 @@ export const CreateSalesOrder = props => {
                     <input className="form-control" name="productCurrency" onChange={(event) => { handleChange(event.target.value, index, event.target.name) }}></input>
                 </div>)
         })
-
         return mappednewWorkOrder
     }
-
-
 
     function handleChange(input, index, name) {
         auxObj = [...newWorkOrder]
@@ -74,15 +73,9 @@ export const CreateSalesOrder = props => {
         setNewWorkOrder(auxObj)
     }
 
-
-
-
-
     function handleSave() {
-
         newSalesOrder['WO'] = newWorkOrder
         actions.createSalesOrder(newSalesOrder)
-
     }
 
     return (
